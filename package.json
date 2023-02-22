@@ -1,0 +1,12 @@
+{
+  "name": "microservices",
+  "version": "1.0.0",
+  "description": "A package for running DDL 'migrations' on DynamoDB tables.",
+  "scripts": {
+    "g:migration": "func() { node db/scripts/generateMigration.js \"$1\"; }; func",
+    "db:migrate:[table-name]": "func() { STAGE=\"$1\" DYNAMO_TABLE_KEY='AWS_ARN_BIDS_TABLE' node -e \"require('./db/scripts/migrate.js').run()\"; }; func"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1195.0"
+  }
+}
